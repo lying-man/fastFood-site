@@ -1,0 +1,337 @@
+
+@import "_helpers.scss";
+
+.toster {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, calc(100% - 20px));
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    font-size: 12px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    border-radius: 9999px;
+    padding: 10px 0px;
+    transition: all .3s ease;
+    user-select: none;
+    z-index: 3;
+    color: $mainDark;
+    background: $mainLight;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+
+    &.active {
+        transform: translate(-50%, 0%);
+        opacity: 1;
+        transition: all .3s ease;
+    }
+}
+
+.basket {
+    position: fixed;
+    background: $mainDark;
+    z-index: 3;
+    top: 0;
+    height: 100%;
+    right: 0;
+    padding: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 450px;
+    width: 100%;
+    visibility: hidden;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all .3s ease;
+
+    @media (max-width: 550px) {
+        max-width: 85%;
+    }
+
+    @media (max-width: 430px) {
+        max-width: 100%;
+    }
+
+    &.open {
+        visibility: visible;
+        transform: translateX(0%);
+        opacity: 1;
+        transition: all .3s ease;
+    }
+
+    &.empty {
+
+        & .basket-box {
+            @extend %center;
+        }
+
+        & .empty-text {
+            color: $white;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+        }
+
+        & .basket-footer {
+            display: none;
+        }
+    }
+
+    .empty-text {
+        display: none;
+    }
+
+    &-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 30px;
+
+        &-close {
+            width: 30px;
+            height: 30px;
+            background: $mainLight;
+            border-radius: 6px;
+            border: none;
+            position: relative;
+            @extend %center;
+            transition: all .2s ease-out;
+
+            @media (hover) {
+                &:hover {
+                    background: darken($mainLight, 20);
+                    transition: all .2s ease-out;
+                }
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 70%;
+                height: 3px;
+                border-radius: 9999px;
+                background: $mainDark;
+                transform: rotate(45deg);
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 70%;
+                height: 3px;
+                border-radius: 9999px;
+                background: $mainDark;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &-title {
+            color: $white;
+            font-size: 22px;
+            font-weight: bold;
+
+            @media (max-width: 550px) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-box {
+        flex: 0 1 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 10px;
+
+        &-item {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+
+            .item-info {
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+
+                &-img {
+                    height: 100px;
+                    width: 140px;
+                    object-fit: cover;
+                    border-radius: 6px;
+                    user-select: none;
+
+                    @media (max-width: 550px) {
+                        height: 70px;
+                        width: 100px;
+                    }
+                }
+
+                &-content {
+
+                    .title-basket-item {
+                        color: $white;
+                        font-size: 18px;
+                        margin-bottom: 3px;
+
+                        @media (max-width: 550px) {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .busket-item-price {
+                        color: $white;
+                        font-size: 16px;
+                        margin-bottom: 3px;
+
+                        @media (max-width: 550px) {
+                            font-size: 12px;
+                        }
+                    }
+
+                    .btn-delete-item {
+                        color: $mainDark;
+                        font-size: 16px;
+                        border: none;
+                        background: $mainLight;
+                        padding: 4px 8px;
+                        border-radius: 6px;
+                        transition: all .2s ease-out;
+
+                        @media (max-width: 550px) {
+                            font-size: 14px;
+                        }
+
+                        @media (hover) {
+                            &:hover {
+                                background: darken($mainLight, 20);
+                                transition: all .2s ease-out;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .counter {
+                display: flex;
+                align-items: center;
+
+                .counter-btn {
+                    width: 30px;
+                    height: 30px;
+                    @extend %center;
+                    background: $mainLight;
+                    color: $mainDark;
+                    border-radius: 50%;
+                    border: none;
+                    font-size: 16px;
+                    transition: all .2s ease-out;
+
+                    @media (max-width: 550px) {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    @media (hover) {
+                        &:hover {
+                            background: darken($mainLight, 20);
+                            transition: all .2s ease-out;
+                        }
+                    }
+
+                    &.disable {
+                        pointer-events: none;
+                        opacity: 0.7;
+                        user-select: none;
+                    }
+                }
+
+                &-display {
+                    user-select: none;
+                    margin: 0px 12px;
+                    font-size: 18px;
+                    color: $white;
+
+                    @media (max-width: 550px) {
+                        font-size: 14px;
+                        margin: 0px 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-footer {
+        min-width: 100%;
+        padding: 20px 0px;
+        display: block;
+
+        &-top {
+            min-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: flex-end;
+
+            .total-price {
+                color: $white;
+                font-size: 22px;
+
+                @media (max-width: 550px) {
+                    font-size: 18px;
+                }
+            }
+
+            .text-hint {
+                color: $white;
+                font-size: 14px;
+
+                @media (max-width: 550px) {
+                    font-size: 10px;
+                }
+            }
+        }
+
+
+        &-btn {
+            display: block;
+            width: 100%;
+            border: none;
+            background: $mainLight;
+            color: $mainDark;
+            text-align: center;
+            font-size: 20px;
+            padding: 8px 0px;
+            border-radius: 6px;
+            transition: all .2s ease-out;
+
+            @media (max-width: 550px) {
+                font-size: 18px;
+            }
+
+            @media (hover) {
+                &:hover {
+                    background: darken($mainLight, 20);
+                    transition: all .2s ease-out;
+                }
+            }
+
+            &.reset-basket {
+                margin: 14px 0px;
+            }
+        }
+    }
+}
+

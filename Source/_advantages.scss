@@ -1,0 +1,251 @@
+
+@import "_helpers.scss";
+
+.advantage {
+    min-width: 100%;
+    margin-top: 59px;
+    position: relative;
+    padding-bottom: 180px;
+
+    @media (max-width: $maxWidthMedia) {
+        @include adaptiv("padding-bottom", 50, 180);
+    }
+
+    @media (max-width: $maxWidthMedia) {
+        @include adaptiv("margin-top", 30, 59);
+    }
+
+    &-title {
+        color: $black;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 134px;
+        text-align: center;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv-font(40, 28);
+            @include adaptiv("margin-bottom", 60, 134);
+        }
+
+        @media (max-width: 450px) {
+            margin-bottom: 90px;
+        }
+    }
+
+    &-img {
+        position: absolute;
+        z-index: -1;
+    }
+
+    .big-curve {
+        width: 803px;
+        height: 776px;
+        left: 12px;
+        top: -42px;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("width", 300, 803);
+            @include adaptiv("height", 300, 776);
+        }
+
+        @media (max-width: 700px) {
+            top: 0px;
+        }
+
+        @media (max-width: 400px) {
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    .small-curve {
+        left: 830px;
+        top: 209px;
+        width: 470px;
+        height: 443px;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("width", 200, 470);
+            @include adaptiv("height", 200, 443);
+            @include adaptiv("left", 80, 830);
+            @include adaptiv("top", 420, 209);
+        }
+
+        @media (max-width: 520px) { left: 95px }
+    }
+
+    .circle-one {
+        width: 56px;
+        height: 53px;
+        left: 763px;
+        top: 602px;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("left", 100, 763);
+            @include adaptiv("top", 400, 602);
+        }
+    }
+
+    .circle-two {
+        width: 48px;
+        height: 45px;
+        left: 858px;
+        top: 78px;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("left", 300, 858);
+            @include adaptiv("top", 120, 78);
+        }
+
+        @media (max-width: 570px) {
+            display: none;
+        }
+    }
+
+    .card-box {
+        min-width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 1180px) {
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 450px) {
+            display: block;
+        }
+
+        .card {
+            flex: 0 0 362px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.46);
+            backdrop-filter: blur(75px);
+            transition: all .2s ease-out;
+            padding-bottom: 41px;
+            transform: translateY(0%);
+
+            @media (max-width: 1180px) {
+                flex: 0 1 48%;
+
+                &:last-child {
+                    margin: 0 auto;
+                    margin-top: 42px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                &:last-child {
+                    margin-top: 25px;
+                }
+            }
+
+            @media (max-width: 450px) {
+                width: 100%;
+                &:last-child {
+                    margin-top: 0;
+                }
+                &:not(:last-child) {
+                    margin-bottom: 70px;
+                }
+            }
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv("padding-bottom", 20, 41);
+            }
+
+            @media (hover) {
+                &:hover {
+                    transform: translateY(-3%);
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+                    transition: all .2s ease-out;
+                }
+            }
+
+            &:last-child .card-wrapper {
+                margin-top: -151px;
+                margin-bottom: 20px;
+
+                @media (max-width: $maxWidthMedia) {
+                    @include adaptiv("margin-top", -50, -151);
+                }
+            }
+
+            &-wrapper {
+                margin-top: -131px;
+                width: 100%;
+                height: 357px;
+                position: relative;
+                pointer-events: none;
+                user-select: none;
+                transition: all .3s ease-out;
+
+                @media (max-width: $maxWidthMedia) {
+                    @include adaptiv("height", 100, 357);
+                    @include adaptiv("margin-top", -50, -131);
+                }
+
+                @media (max-width: 1180px) {
+                    margin-bottom: 20px;
+                }
+
+                @media (max-width: 450px) {
+                    width: 56%;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                img {
+                    width: 120%;
+                    height: 120%;
+                    position: absolute;
+                    object-fit: cover;
+
+                    @media (max-width: 1180px) {
+                        height: 139%;
+                    }
+
+                    &.last {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &-title {
+                color: $brown;
+                font-size: 33px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-align: center;
+
+                @media (hover) { pointer-events: none; }
+
+                @media (max-width: $maxWidthMedia) {
+                    @include adaptiv-font(33, 18);
+                }
+            }
+
+            &-content {
+                text-align: center;
+                padding-right: 35px;
+                padding-left: 35px;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+
+                @media (hover) { pointer-events: none; }
+
+                @media (max-width: $maxWidthMedia) {
+                    @include adaptiv-font(20, 14);
+                    @include adaptiv("padding-right", 20, 35);
+                    @include adaptiv("padding-left", 20, 35);
+                }
+            }
+        }
+    }
+}
+
+

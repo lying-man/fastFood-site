@@ -1,0 +1,155 @@
+
+@import "_helpers.scss";
+
+.modal {
+    position: fixed;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background: $mainDark;
+    border-radius: 10px;
+    transition: all .2s ease-out;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, -50%);
+        transition: all .2s ease-out;
+    }
+    
+    @media (max-width: 450px) {
+        max-width: calc(100% - 40px);
+    }
+
+    .close {
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-left: auto;
+        border: none;
+        background: $mainLight;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &:focus {
+            box-shadow: 0px 0px 0px 3px transparent, 0px 0px 0px 5px $white;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: $mainDark;
+            border-radius: 9999px;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: $mainDark;
+            border-radius: 9999px;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .form {
+        width: 100%;
+        margin: 20px 0px;
+
+        &-block {
+            width: 100%;
+
+            &:first-child {
+                margin-bottom: 16px;
+            }
+
+            &:nth-child(2) {
+                margin-bottom: 20px;
+            }
+
+            label {
+                color: $white;
+                font-weight: 400;
+                font-size: 25px;
+                line-height: normal;
+            }
+
+            .wrapper {
+                width: 100%;
+                position: relative;
+
+                .placeholder {
+                    display: block;
+                    position: absolute;
+                    color: #A5A5A5;
+                    text-align: center;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: normal;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                }
+
+                input {
+                    display: block;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: normal;
+                    color: $mainDark;
+                    outline: none;
+                    min-width: 100%;
+                    padding: 5px 10px;
+                    font-size: 15px;
+                    border: none;
+                    border-radius: 4px;
+
+                    &:focus {
+                        box-shadow: 0px 0px 0px 2px darken($white, 40);
+                    }
+                }
+
+                input:focus + .placeholder {
+                    display: none;
+                }
+
+                input:not(:placeholder-shown) + .placeholder {
+                    display: none;
+                }
+            }
+
+        }
+
+        button {
+            width: 120px;
+            height: 46px;
+            border-radius: 8px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            font-size: 16px;
+            color: $white;
+            background-color: $mainLight;
+            border: none;
+        }
+    }
+}

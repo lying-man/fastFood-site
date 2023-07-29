@@ -1,0 +1,33 @@
+.contact 
+    .contact-wrapper 
+        .title Contact Us 
+        .subtitle if you need a help, we can ready here
+        .contact-content 
+            .contact-content-text 
+                .title Let’s talk
+                .text Ask us anything or just say hi..
+            form.contact-content-form(action="#") 
+                .form-block.form-block-header 
+                    .form-block-input 
+                        label(for="username") NAME 
+                        input(type="text" id="username" autoComplete="off" placeholder=" ") 
+                        .label-input Your name
+                    .form-block-input 
+                        label(for="usermail") EMAIL 
+                        input(type="text" id="usermail" autoComplete="off" placeholder=" ") 
+                        .label-input example@yourdomain
+                .form-block.form-block-footer
+                    label(for="usertext") MESSAGE 
+                    textarea(id="usertext" autoComplete="off") 
+                    .label-input Hi there...
+                button.btn-send-contacts 
+                    span.default-text.active Send 
+                    span.loading-content 
+                        span.loader 
+                        span.text Loading
+                    span.loading-success 
+                        img(src="img/checked.svg" alt="success image")
+                        .text Sended 
+    img(src="img/circleImgFooter.svg" alt="circle image").image-one
+    img(src="img/circleImgFooter.svg" alt="circle image").image-two
+    img(src="img/circleImgFooter.svg" alt="circle image").image-three

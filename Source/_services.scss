@@ -1,0 +1,132 @@
+
+@import "_helpers.scss";
+
+.services {
+    position: relative;
+    width: 100%;
+    padding: 0px 20px;
+    background-image: url(../img/bicycle.png);
+    background-size: 877px 547px;
+    background-position: -5px 190px;
+    background-repeat: no-repeat;
+    margin-top: -180px;
+
+    @media (max-width: $maxWidthMedia) {
+        @include adaptiv("margin-top", -240, -180);
+    }
+
+    @media (max-width: 880px) {
+        background-position: -5px 60px;
+    }
+
+    @media (max-width: 560px) {
+        background-position: -120px 60px;
+    }
+
+    &-title {
+        text-align: center;
+        margin-bottom: 97px;
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("margin-bottom", 40, 97);
+        }
+
+        .title {
+            color: $black;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(40, 24);
+            }
+        }
+
+        .subtitle {
+            color: $black;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(30, 14);
+            }
+        }
+    }
+
+    &-wrapper {
+        width: 100%;
+        max-width: $wrapperSize;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+
+        @media (max-width: 880px) {
+            margin-top: 520px;
+            justify-content: center;
+            display: block;
+        }
+
+        .services-cards {
+            flex: 0 1 692px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 38px;
+
+            @media (max-width: 550px) {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+            }
+
+            &-item {
+                background: $white;
+                box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.07);
+                padding: 42px;
+                border-radius: 15px;
+
+                @media (max-width: 880px) {
+                    padding: 26px;
+                }
+
+                .thumb {
+                    width: 63px;
+                    height: 63px;
+                    border-radius: 50%;
+                    background: $thumbColor;
+                    margin-bottom: 34px;
+                    position: relative;
+
+                    img {
+                        width: 44px;
+                        height: 44px;
+                        position: absolute;
+                        top: 38%;
+                        left: 38%;
+                    }
+                }
+
+                .title {
+                    color: $mainDark;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    margin-bottom: 18px;
+                }
+
+                .text {
+                    color: $mainDark;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+
+

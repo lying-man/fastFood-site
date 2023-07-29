@@ -1,0 +1,341 @@
+
+@import "_helpers.scss";
+
+.slider-food {
+    min-width: 100%;
+    margin-bottom: 200px;
+    margin-top: -60px;
+    overflow: hidden;
+    padding-bottom: 120px;
+
+    @media (max-width: $maxWidthMedia) {
+        @include adaptiv("margin-top", -20, -60);
+    }
+
+    .slider-title {
+        margin: 0 auto;
+        max-width: 535px;
+        width: 100%;
+        margin-bottom: 87px;
+        padding: 0px 20px;
+
+        .title {
+            text-align: center;
+            color: $black;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(40, 28);
+            }
+        }
+
+        .subtitle {
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            text-align: center;
+            color: $black;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(30, 18);
+            }
+        }
+    }
+
+    .slider-wrapper {
+        min-width: 100%;
+        position: relative;
+
+        .slider-inner {
+            max-width: 1364px;
+            margin: 0 auto;
+            position: relative;
+
+            .btn-slider {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                @extend %center;
+                fill: rgba(255, 255, 255, 0.60);
+                box-shadow: 0px 0px 4px lighten(#000, 80);
+                border: none;
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                transform: translateY(-50%) scale(1);
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+                transition: all .2s ease-out;
+
+                @media (max-width: 1430px) { 
+                    height: 50px;
+                    width: 50px;
+
+                    & img {
+                        width: 8px;
+                        height: 16px;
+                    }
+                }
+    
+                img {
+                    width: 15px;
+                    height: 29px;
+                }
+            }
+    
+            .sw-button-prev {
+                left: -20px;
+                transform: translateY(-50%) rotate(180deg);
+                &.swiper-button-disabled {
+                    transform: translateY(-50%) rotate(180deg) scale(0.5);
+                    opacity: 0;
+                    pointer-events: none;
+                    visibility: hidden;
+                    transition: all .2s ease-out;
+                }
+                @media (max-width: 1430px) {
+                    transform: translateY(0%) rotate(180deg); 
+                    top: -60px;
+                    left: calc(100% - 140px);
+                }
+            }
+    
+            .sw-button-next {
+                right: -20px;
+                &.swiper-button-disabled {
+                    transform: translateY(-50%) scale(0.5);
+                    opacity: 0;
+                    pointer-events: none;
+                    visibility: hidden;
+                    transition: all .2s ease-out;
+                }
+                @media (max-width: 1430px) { 
+                    transform: translateY(0%) scale(1);
+                    top: -60px;
+                    right: 30px;
+                }
+            }
+
+            .swiper {
+                padding: 20px 30px;
+        
+                &-wrapper {
+                    align-items: flex-start;
+        
+                    .swiper-slide {
+                        // flex: 0 0 389px;
+                        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.07);
+                        background: $white;
+                        border-radius: 15px;
+                        min-height: 100%;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+        
+                        .img-wrapper {
+                            height: 319px;
+                            margin-bottom: 25px;
+                            position: relative;
+                            cursor: pointer;
+                            overflow: hidden;
+                            display: block;
+
+                            @media (max-width: $maxWidthMedia) {
+                                @include adaptiv("height", 200, 319);
+                            }
+
+                            @media (hover) {
+                                &:hover img {
+                                    transform: scale(1.2);
+                                    transition: all .2s ease-out;
+                                }
+                            }
+        
+                            img {
+                                transform: scale(1);
+                                transition: all .2s ease-out;
+                                @extend %imgAdaptiv;
+                            }
+                        }
+
+                        .card-wrapper {
+                            width: 100%;
+                            min-height: 100%;
+                            padding-right: 21px;
+                            padding-left: 11px;
+                            padding-bottom: 19px;
+                            flex: 1 1 auto;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+
+                            @media (max-width: 768px) {
+                                padding-right: 11px;
+                            }
+
+                            .card-content {
+                                max-width: 309px;
+                                margin-bottom: 9px;
+            
+                                &-title {
+                                    font-size: 20px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;
+                                    color: $mainDark;
+                                    margin-bottom: 5px;
+                                }
+            
+                                &-subtitle {
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: normal;
+                                    color: $mainDark;
+                                }
+                            }
+            
+                            .card-footer {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-end;
+            
+                                .location {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 3px;
+
+                                    @media (hover) {
+                                        &:hover {
+                                            text-decoration: underline;
+                                        }
+                                    }
+            
+                                    &-img {
+                                        width: 12px;
+                                        height: 17px;
+                                    }
+            
+                                    &-content {
+                                        font-size: 10px;
+                                        font-style: normal;
+                                        font-weight: 300;
+                                        line-height: normal;
+                                        color: $mainDark;
+                                    }
+                                }
+            
+                                &-btn {
+                                    border: none;
+                                    border-radius: 10px;
+                                    background: $sliderBtn;
+                                    color: $brown;
+                                    padding: 8px 16px;
+                                    font-size: 20px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    transition: all .2s ease-out;
+
+                                    &.disable {
+                                        opacity: 0.5;
+                                        pointer-events: none;
+                                        user-select: none;
+                                    }
+
+                                    @media (max-width: $maxWidthMedia) {
+                                        @include adaptiv-font(20, 14);
+                                    }
+
+                                    @media (max-width: 768px) {
+                                        padding: 8px 14px;
+                                        border-radius: 8px;
+                                    }
+            
+                                    @media (hover) {
+                                        &:hover {
+                                            background: lighten($sliderBtn, 15);
+                                            transition: all .2s ease-out;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+        
+                    }
+                }
+            }
+        }
+
+    }
+
+    .slider-btn {
+        background: $mainLight;
+        border-radius: 15px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        padding: 17px 38px;
+        border: none;
+        color: $white;
+        position: relative;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+        z-index: 2;
+        transition: all .2s ease-out;
+        margin-top: 67px;
+
+        @media (max-width: 900px) {
+            padding: 12px 22px;
+        }
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv-font(20, 14);
+        }
+
+        @media (max-width: $maxWidthMedia) {
+            @include adaptiv("margin-top", 24, 67);
+        }
+
+        @media (hover) {
+            &:hover:after {
+                transform: scale(0);
+                transition: all .2s ease-out;
+            }
+            &:hover {
+                background-color: darken($mainLight, 20);
+                transition: all .2s ease-out;
+            }
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            border-radius: 15px;
+            background: rgba(255, 209, 99, 0.73);
+            z-index: -1;
+            width: 80%;
+            height: 90%;
+            filter: blur(50px);
+            transform-origin: top center;
+            transform: scale(1);
+            transition: all .2s ease-out;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv("top", 12, 29);
+            }
+        }
+    }
+}
+
+
+
+

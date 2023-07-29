@@ -1,0 +1,142 @@
+
+@import "_helpers.scss";
+
+.about {
+    width: 100%;
+    padding: 0px 20px;
+    position: relative;
+    margin-top: 123px;
+    padding-bottom: 108px;
+    background-image: url("../img/aboutImg.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% + 40px) 0px;
+    background-size: 572px 495px;
+
+    @media (max-width: $maxWidthMedia) {
+        @include adaptiv("margin-top", 70, 123);
+        @include adaptiv("padding-bottom", 60, 108);
+    }
+
+    &-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 109px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 360px;
+        }
+
+        .title {
+            color: $black;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(40, 26);
+            }
+        }
+
+        .subtitle {
+            color: $black;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv-font(30, 16);
+            }
+        }
+    }
+
+    &-content {
+        max-width: 746px;
+        width: 100%;
+
+        &-text {
+            width: 100%;
+            margin-bottom: 50px;
+
+            @media (max-width: $maxWidthMedia) {
+                @include adaptiv("margin-bottom", 30, 50);
+            }
+
+            span {
+                color: $black;
+                font-size: 28px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+    
+                @media (max-width: $maxWidthMedia) {
+                    @include adaptiv-font(28, 16);
+                }
+            }
+
+            .more-text {
+                display: inline-block;
+                box-sizing: content-box;
+                padding-top: 0px;
+                overflow: hidden;
+                transition: all .4s ease-out;
+
+                &.active {
+                    padding-top: 20px;
+                    transition: all .4s ease-out;
+                }
+            }
+
+        }
+
+        &-btn {
+            color: $white;
+            background: $mainLight;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            padding: 17px 34px;
+            border: none;
+            border-radius: 15px;
+            position: relative;
+            transition: all .2s ease-out;
+
+            @media (max-width: 900px) {
+                padding: 12px 22px;
+                font-size: 16px;
+            }
+
+            @media (hover) {
+                &:hover {
+                    background: darken($mainLight, 20);
+                    transition: all .2s ease-out;
+                }
+                &:hover:after {
+                    transform: scale(0);
+                    transition: all .2s ease-out;
+                }
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                width: 80%;
+                height: 80%;
+                position: absolute;
+                z-index: -1;
+                border-radius: 15px;
+                background: rgba(255, 209, 99, 0.73);
+                filter: blur(50px);
+                background: $mainLight;
+                left: 5px;
+                top: 29px;
+                transform-origin: top center;
+                transform: scale(1);
+                transition: all .2s ease-out;
+            }
+        }
+    }
+}
+

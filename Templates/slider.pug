@@ -1,0 +1,69 @@
+mixin slider(src, title, subtitle, price) 
+    .swiper-slide(data-title= title, data-price= price, data-img= src)
+        a.img-wrapper(href="#" target="_blank") 
+            img(src=src alt="food image")
+        .card-wrapper 
+            .card-content 
+                a.card-content-title= title 
+                .card-content-subtitle= subtitle
+            .card-footer 
+                a.location(href="#" target="_blank")
+                    img.location-img(src="img/locationImg.svg" alt="location image")
+                    .location-content Bengkalis
+                button.card-footer-btn Buy now
+
+.slider-food 
+    .slider-title 
+        h2.title Food 
+        .subtitle Top Restaurant For Dining Out Or In !
+    .slider-wrapper
+        .slider-inner
+            .swiper 
+                .swiper-wrapper
+                    +slider(
+                        "img/sliderOne.jpg", 
+                        "Sirloin steak...", 
+                        "This steak is served with a mushroom  sauce specialty that is easy to make",
+                        32
+                    )
+                    +slider(
+                        "img/sliderTwo.jpg",
+                        "Pasta",
+                        "Made from a mixture of flour, olive oil, eggs, and salt which forms a dough that can be shaped into...",
+                        17
+                    )
+                    +slider(
+                        "img/sliderThree.jpg",
+                        "Spaghettie",
+                        "Pasta which has a thin and dense cylindrical shape made from refined wheat",
+                        11
+                    )
+                    +slider(
+                        "img/potato.jpg", 
+                        "Potato", 
+                        "This steak is served with a mushroom  sauce specialty that is easy to make",
+                        6
+                    )
+                    +slider(
+                        "img/pizza.jpg",
+                        "Pizza",
+                        "Made from a mixture of flour, olive oil, eggs, and salt which forms a dough that can be shaped into..",
+                        5
+                    )
+                    +slider(
+                        "img/mushrooms.jpg",
+                        "Mushrooms",
+                        "Mushrooms which has a thin and dense cylindrical shape made from refined wheat",
+                        12
+                    )
+                    +slider(
+                        "img/eggs.jpg",
+                        "Eggs",
+                        "Eggs which has a thin and dense cylindrical shape made from refined wheat",
+                        3
+                    )
+            button.btn-slider.sw-button-prev 
+                img(src="img/arrow.svg" alt="arrow image")
+            button.btn-slider.sw-button-next 
+                img(src="img/arrow.svg" alt="arrow image")
+    button.slider-btn Food more

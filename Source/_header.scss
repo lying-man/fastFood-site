@@ -1,0 +1,351 @@
+
+@import "_helpers.scss";
+
+$arrayValues: (
+        "Home": 1,
+        "Food": 2,
+        "Services": 3,
+        "About Us": 4,
+        "Contact Us": 5
+);
+
+.header {
+    width: 100%;
+
+    //глобальная обёртка
+    .wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            flex: 0 0 64px;
+            height: 58px;
+            position: relative;
+            margin-right: 49px;
+
+            @media (max-width: 810px) {
+                margin-right: 20px;
+            }
+
+            @media (max-width: 840px) {
+                height: 38px;
+                flex: 0 0 44px;
+            }
+
+            @media (max-width: 768px) {
+                height: 28px;
+                flex: 0 0 34px;
+            }
+    
+            img {
+                @extend %imgAdaptiv;
+            }
+        }
+    
+        //обёртка которая будет выдвигаться на мобилке
+        .wrapper-nav {
+            flex: 0 1 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @media (max-width: 768px) {
+                display: block;
+                position: fixed;
+                left: 0;
+                top: 0;
+                background: $mainDark;
+                width: 100%;
+                z-index: 3;
+                padding: 20px;
+                border-radius: 0px 0px 14px 14px;
+                transform: translateY(-100%);
+                transition: all .2s ease-out;
+
+                &.active {
+                    transform: translateY(0%);
+                    transition: all .2s ease-out;
+                }
+            }
+    
+            //кнопка закрытия
+            .close {
+                display: none;
+    
+                @media (max-width: 768px) {
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    margin-left: auto;
+                    border: none;
+                    background: $mainLight;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 60%;
+                        height: 3px;
+                        background: $mainDark;
+                        border-radius: 9999px;
+                        position: absolute;
+                        transform: rotate(45deg);
+                    }
+
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 60%;
+                        height: 3px;
+                        background: $mainDark;
+                        border-radius: 9999px;
+                        position: absolute;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+    
+            .header-nav {
+                display: flex;
+                flex: 0 1 768px;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                @media (max-width: 768px) {
+                    margin: 30px 0px;
+                    margin-top: 40px;
+                }
+
+                @media (max-width: 560px) {
+                    display: block;
+                }
+    
+                &-link {
+
+                    a {
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        color: $mainDark;
+                        position: relative;
+                        font-size: 20px;
+                        padding: 20px;
+                        transition: all .2s ease-out;
+
+                        @media (max-width: 768px) {
+                            color: $white;
+                        }
+
+                        @media (max-width: 560px) {
+                            display: block;
+                        }
+
+                        @media (hover) {
+                            &:hover {
+                                color: $hoverLink;
+                                transition: all .2s ease-out;
+                            }
+                        }
+
+                        @media (max-width: $maxWidthMedia) {
+                            @include adaptiv-font(20, 14);
+                            @include adaptiv("padding", 14, 20);
+                        }
+                        
+                    }
+
+                }
+            }
+
+            .header-nav-wrap {
+                display: flex;
+                align-items: center;
+                flex: 0 1 253px;
+                justify-content: space-between;
+
+                .basket-header-btn {
+                    flex: 0 0 25px;
+                    height: 25px;
+                    position: relative;
+                    background: none;
+                    border: none;
+                    z-index: 1;
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+
+                    @media (hover) {
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            height: 5px;
+                            width: 0%;
+                            bottom: -5px;
+                            left: 0;
+                            z-index: 1;
+                            border-radius: 9999px;
+                            background: $mainDark;
+                            transition: all .2s ease-out;
+                        }
+    
+                        &:hover:after {
+                            width: 100%;
+                            transition: all .2s ease-out;
+                        }
+                    }
+
+                    img {
+                        @extend %imgAdaptiv;
+                    }
+
+                    &-thumb {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        transform: translate(50%, -50%);
+                        min-width: 20px;
+                        padding: 4px;
+                        height: 20px;
+                        border-radius: 9999px;
+                        position: absolute;
+                        color: $white;
+                        background: $mainLight;
+                        font-size: 14px;
+                        @extend %center;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+                .sign {
+                    background: none;
+                    border: none;
+                    flex: 0 0 156px;
+                    height: 53px;
+                    @extend %center;
+                    background-color: $mainLight;
+                    border-radius: 15px;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    color: $white;
+                    transition: all .2s ease-out;
+
+                    @media (max-width: 980px) {
+                        flex: 0 0 120px;
+                        height: 53px;
+                    }
+
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                        flex: 0 0 126px;
+                        height: 43px;
+                    }
+
+                    @media (hover) {
+                        &:hover {
+                            background-color: darken($mainLight, 20);
+                            transition: all .2s ease-out;
+                        }
+                    }
+
+                }
+            }
+    
+        }
+
+        .mobile-nav {
+            display: none;
+
+            @media (max-width: 768px) {
+                display: flex;
+                flex: 0 1 80px;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .basket-header-btn {
+                flex: 0 0 25px;
+                height: 25px;
+                position: relative;
+                background: none;
+                border: none;
+
+                img {
+                    @extend %imgAdaptiv;
+                }
+
+                &-thumb {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transform: translate(50%, -50%);
+                    min-width: 20px;
+                    padding: 4px;
+                    height: 20px;
+                    border-radius: 9999px;
+                    position: absolute;
+                    color: $white;
+                    background: $mainLight;
+                    font-size: 14px;
+                    @extend %center;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+
+            .burger-menu {
+                flex: 0 0 25px;
+                height: 25px;
+                border: none;
+                background: none;
+                position: relative;
+                @extend %center;
+
+                &-line {
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    border-radius: 9999px;
+                    background: $mainDark;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: -6px;
+                        background: $mainDark;
+                        border-radius: 9999px;
+                        height: 3px;
+                    }
+
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        position: absolute;
+                        left: 0;
+                        bottom: -6px;
+                        background: $mainDark;
+                        border-radius: 9999px;
+                        height: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+

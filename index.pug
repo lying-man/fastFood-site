@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title FastFood
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css")
+        link(rel="stylesheet", href="CSS/main.css")
+        link(rel="shortcut icon", href="img/logo.svg")
+    body 
+        .overlay 
+        include Templates/modal
+        include Templates/basket
+        .padding-wrapper
+            .wrapper 
+                include Templates/header
+                include Templates/face
+                include Templates/advantages
+        include Templates/slider
+        include Templates/services
+        include Templates/about
+        include Templates/contact
+        include Templates/footer
+        script(src="JS/swiper.js")
+        script(src="JS/main.js")
+            

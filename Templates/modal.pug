@@ -1,0 +1,14 @@
+.modal 
+    button.close 
+    form.form(action="#")
+        .form-block
+            label(for="login") LOGIN 
+            .wrapper 
+                input(type="text" id="login" autoComplete="off" placeholder=" ")
+                .placeholder Your login
+        .form-block
+            label(for="pass") PASSWORD 
+            .wrapper
+                input(type="password" id="pass" placeholder=" ")
+                .placeholder Your password
+        button(data-type="last") Sign In

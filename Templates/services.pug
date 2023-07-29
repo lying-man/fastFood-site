@@ -1,0 +1,33 @@
+mixin card(src, title, text)
+    .services-cards-item
+        .thumb
+            img(src= src, alt="thumb image")
+        .title= title 
+        .text= text
+
+.services 
+    .services-title 
+        .title Services 
+        .subtitle service from our services to you
+    .services-wrapper
+        .services-cards  
+            +card(
+                "img/priceThumb.svg",
+                "Discount system", 
+                "We have favorable discount system for our regular customer"
+            )
+            +card(
+                "img/deliveryThumb.svg",
+                "Delivery",
+                "Fast and safe delivery from us with a reliable introduction"
+            )
+            +card(
+                "img/trayThumb.svg",
+                "500+ Restaurant",
+                "We have more then 500 thousand restaurant who cooperate with us"
+            )
+            +card(
+                "img/coinThumb.svg",
+                "Best Quality",
+                "We provide the best service and high quality"
+            )

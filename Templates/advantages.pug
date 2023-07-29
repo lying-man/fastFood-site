@@ -1,0 +1,16 @@
+mixin card(url, title, content, cl)
+    .card 
+        .card-wrapper 
+            img(src=url alt="card image" class= cl)
+        .card-title= title 
+        .card-content= content 
+.advantage 
+    img.big-curve.advantage-img(src="img/cardImg.svg" alt="image curve") 
+    img.small-curve.advantage-img(src="img/cardTwoImg.svg" alt="image curve") 
+    img.circle-one.advantage-img(src="img/circleImgAdvantages.svg" alt="image circle")
+    img.circle-two.advantage-img(src="img/circleImgAdvantages.svg" alt="image circle")
+    h2.advantage-title Why Fast Food ?
+    .card-box 
+        +card("img/phone.png", "Easy", "Only with your smartphone you can get a food", "")
+        +card("img/rocket.png", "Fast", "We can deliver your food very fast", "")
+        +card("img/box.png", "Safe", "All food label halal and stay healthy for you", "last")
