@@ -522,7 +522,3 @@ if (!(/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.platform))) {
     
     launchParallax();
 }
-
-
-
-
